@@ -1,19 +1,35 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@acme/ui/button";
+import { Button, ButtonVariants } from "./button";
 
-const meta: Meta<typeof Button> = {
+const meta: Meta<ButtonVariants> = {
   component: Button,
   argTypes: {
-    type: {
-      control: { type: "radio" },
-      options: ["button", "submit", "reset"],
+    children: {
+      control: false,
+    },
+    color: {
+      control: {
+        type: "select",
+        options: ["primary", "secondary"],
+      },
+    },
+    size: {
+      control: {
+        type: "select",
+        options: ["small", "medium", "large"],
+      },
+    },
+    disabled: {
+      control: {
+        type: "boolean",
+      },
     },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<ButtonVariants>;
 
 /*
  *👇 Render functions are a framework specific feature to allow you control on how the component renders.
@@ -21,26 +37,19 @@ type Story = StoryObj<typeof Button>;
  * to learn how to use render functions.
  */
 export const Primary: Story = {
-  render: (props) => (
+  render: ({ children, ...rest }) => (
     <Button
-      {...props}
+      {...rest}
       onClick={(): void => {
         // eslint-disable-next-line no-alert -- alert for demo
         alert("Hello from Turborepo!");
       }}
     >
-      Hello
+      {children}
     </Button>
   ),
   name: "Button",
   args: {
     children: "Hello",
-    type: "button",
-    style: {
-      color: "blue",
-      border: "1px solid gray",
-      padding: 10,
-      borderRadius: 10,
-    },
   },
 };
