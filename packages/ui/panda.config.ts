@@ -12,7 +12,52 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    tokens: {
+      borderWidths: {
+        small: {
+          value: "3px",
+        },
+      },
+    },
+    semanticTokens: {
+      colors: {
+        background: {
+          default: {
+            value: {
+              base: "#ffffff",
+              _dark: "#222222",
+            },
+          },
+        },
+        border: {
+          primary: {
+            value: {
+              base: "red",
+              _dark: "yellow",
+            },
+          },
+        },
+        text: {
+          primary: {
+            value: {
+              base: "red",
+              _dark: "yellow",
+            },
+          },
+        },
+      },
+      borders: {
+        normal: {
+          value: "{borderWidths.small} solid {colors.border.primary}",
+        },
+      },
+    },
+  },
+
+  globalCss: {
+    body: {
+      backgroundColor: "background.default",
+    },
   },
 
   // The output directory for your css system

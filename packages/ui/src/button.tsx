@@ -6,6 +6,7 @@ const buttonStyle = cva({
     borderRadius: "4px",
     fontSize: "16px",
     fontWeight: "bold",
+    border: "normal",
   },
 
   variants: {
