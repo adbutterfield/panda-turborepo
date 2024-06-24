@@ -25,7 +25,7 @@
     "preview-storybook": "serve storybook-static"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.39.1",
+    "@pandacss/dev": "^0.41.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@storybook/addon-actions": "^8.1.1",
